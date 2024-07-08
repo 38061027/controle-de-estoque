@@ -1,0 +1,24 @@
+{
+    "produtos": [
+      { "id": "1", "produto": "arroz", "qtd":3, "valor":20},
+      { "id": "2", "produto": "feijão", "qtd":5, "valor":15},
+      { "id": "3", "produto": "leite", "qtd":6,  "valor":12},
+      { "id": "3", "produto": "macarrão", "qtd":5,  "valor":21},
+      { "id": "3", "produto": "carne", "qtd":3,  "valor":25}
+    ],
+    "clientes":[
+        {"id":"1", "name": "josé"},
+        {"id":"2", "name": "daniel"},
+        {"id":"3", "name": "pedro"},
+        {"id":"4", "name": "gabriel"},
+        {"id":"4", "name": "miguel"}
+    ],
+    "vendas":[
+    {"id":"1", "produto":"arroz","qtd":1},
+    {"id":"2", "produto":"feijão","qtd":2},
+    { "id": "3", "produto": "leite", "qtd":2},
+    { "id": "4", "produto": "macarrão", "qtd":3},
+    { "id": "5", "produto": "carne", "qtd":1}
+
+    ]
+  }

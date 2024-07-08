@@ -1,9 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
 
-  constructor() { }
+  private url:string = 'http://localhost:3000'
+
+  constructor(private http: HttpClient) { }
+
+  getProdutos():Observable<any[]>{
+    return this.http.get<any[]>(`${this.url}/produtos`)
+  }
+
+  getVendas():Observable<any[]>{
+    return this.http.get<any[]>(`${this.url}/vendas`)
+  }
+
+  getClients():Observable<any[]>{
+    return this.http.get<any[]>(`${this.url}/clientes`)
+  }
+
 }

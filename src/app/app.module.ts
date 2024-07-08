@@ -11,6 +11,7 @@ import { RelatorioComponent } from './components/relatorio/relatorio.component';
 import { VendasComponent } from './components/vendas/vendas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MaterialModule } from './material/material.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

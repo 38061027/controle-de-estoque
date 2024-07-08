@@ -1,1 +1,58 @@
-<p>dashboard works!</p>
+<div class="container-dash">
+
+    <div class="content-dash">
+
+        <div id="box-dash">
+            <span class="material-symbols-outlined">
+                sell
+            </span>
+            <h3>Total {{totalVendas}} R$</h3>
+        </div>
+        <div id="box-dash">
+            <span class="material-symbols-outlined">
+                groups
+            </span>
+            <h3>N clientes {{numeroClientes}}</h3>
+        </div>
+        <div id="box-dash">
+            <span class="material-symbols-outlined">
+                grocery
+            </span>
+            <h3>Produtos {{numeroProdutos}}</h3>
+        </div>
+    </div>
+
+
+        <h1>Últimas 5 vendas</h1>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="produto">
+            <th mat-header-cell *matHeaderCellDef> Produto </th>
+            <td mat-cell *matCellDef="let element"> {{element.produto}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="qtd">
+            <th mat-header-cell *matHeaderCellDef> Qtd </th>
+            <td mat-cell *matCellDef="let element"> {{element.qtd}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="valor">
+            <th mat-header-cell *matHeaderCellDef> Valor/u </th>
+            <td mat-cell *matCellDef="let element"> {{element.valor}} R$</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+</div>
