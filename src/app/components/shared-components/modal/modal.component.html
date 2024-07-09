@@ -1,0 +1,19 @@
+<form class="form-container" [formGroup]="cadastrarProduto" (ngSubmit)="onSubmit()"> 
+    <mat-form-field>
+        <mat-label>Nome do produto</mat-label>
+        <input formControlName="produto" matInput>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Amount</mat-label>
+        <input formControlName="valor" matInput type="number" class="example-right-align" placeholder="0" />
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+        <mat-label>Quantidade</mat-label>
+        <input formControlName="qtd" matInput type="number" class="example-right-align" placeholder="0" />
+    </mat-form-field>
+    <div class="btn-content">
+        <button mat-raised-button color="primary" type="submit">Casdastrar</button>
+      </div>
+</form>

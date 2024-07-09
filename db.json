@@ -1,24 +1,124 @@
 {
-    "produtos": [
-      { "id": "1", "produto": "arroz", "qtd":3, "valor":20},
-      { "id": "2", "produto": "feijão", "qtd":5, "valor":15},
-      { "id": "3", "produto": "leite", "qtd":6,  "valor":12},
-      { "id": "3", "produto": "macarrão", "qtd":5,  "valor":21},
-      { "id": "3", "produto": "carne", "qtd":3,  "valor":25}
-    ],
-    "clientes":[
-        {"id":"1", "name": "josé"},
-        {"id":"2", "name": "daniel"},
-        {"id":"3", "name": "pedro"},
-        {"id":"4", "name": "gabriel"},
-        {"id":"4", "name": "miguel"}
-    ],
-    "vendas":[
-    {"id":"1", "produto":"arroz","qtd":1},
-    {"id":"2", "produto":"feijão","qtd":2},
-    { "id": "3", "produto": "leite", "qtd":2},
-    { "id": "4", "produto": "macarrão", "qtd":3},
-    { "id": "5", "produto": "carne", "qtd":1}
-
-    ]
-  }
+  "produtos": [
+    {
+      "id": "1",
+      "produto": "arroz",
+      "qtd": 3,
+      "valor": 20
+    },
+    {
+      "id": "2",
+      "produto": "feijão",
+      "qtd": 5,
+      "valor": 15
+    },
+    {
+      "id": "3",
+      "produto": "leite",
+      "qtd": 6,
+      "valor": 12
+    },
+    {
+      "id": "4",
+      "produto": "macarrão",
+      "qtd": 5,
+      "valor": 21
+    },
+    {
+      "id": "5",
+      "produto": "carne",
+      "qtd": 3,
+      "valor": 25
+    },
+    {
+      "id": "6",
+      "produto": "mortadela",
+      "qtd": 0,
+      "valor": 25
+    },
+    {
+      "id": "7",
+      "produto": "presunto",
+      "qtd": 0,
+      "valor": 25
+    },
+    {
+      "id": "8",
+      "produto": "pão",
+      "qtd": 0,
+      "valor": 25
+    },
+    {
+      "id": "9",
+      "produto": "abacate",
+      "valor": 8,
+      "qtd": 5
+    },
+    {
+      "id": "10",
+      "produto": "mel",
+      "valor": 5,
+      "qtd": 0
+    }
+  ],
+  "clientes": [
+    {
+      "id": "1",
+      "name": "josé"
+    },
+    {
+      "id": "2",
+      "name": "daniel"
+    },
+    {
+      "id": "3",
+      "name": "pedro"
+    },
+    {
+      "id": "4",
+      "name": "gabriel"
+    },
+    {
+      "id": "4",
+      "name": "miguel"
+    }
+  ],
+  "vendas": [
+    {
+      "id": "1",
+      "produto": "arroz",
+      "qtd": 1,
+      "valor": 0
+    },
+    {
+      "id": "2",
+      "produto": "feijão",
+      "qtd": 2,
+      "valor": 0
+    },
+    {
+      "id": "3",
+      "produto": "leite",
+      "qtd": 2,
+      "valor": 0
+    },
+    {
+      "id": "4",
+      "produto": "macarrão",
+      "qtd": 3,
+      "valor": 0
+    },
+    {
+      "id": "5",
+      "produto": "carne",
+      "qtd": 1,
+      "valor": 0
+    },
+    {
+      "id": "6",
+      "produto": "pão",
+      "qtd": 1,
+      "valor": 0
+    }
+  ]
+}

@@ -1,9 +1,13 @@
 <main class="container-home">
 
     <menu class="menu-lateral">
-        <h1 class="title"><span class="material-symbols-outlined">
-            local_shipping
-            </span></h1>
+        <div class="content-title">
+            <span id="logo" class="material-symbols-outlined">
+                local_shipping
+                </span>
+                <h1 class="title">Estoque BR</h1>
+        </div>
+    
         <div class="content-menu">
             <ul *ngFor="let route of routers">
                 <li (click)="tabs(route.num)">
@@ -14,10 +18,10 @@
         </div>
     </menu>
 
-<div *ngIf="actualRoute == 1" class="tabs">
+<div *ngIf="actualRoute == 2" class="tabs">
     <app-dashboard></app-dashboard>
 </div>
-<div class="tabs"*ngIf="actualRoute == 2">
+<div class="tabs"*ngIf="actualRoute == 1">
     <app-produtos></app-produtos>
 </div>
 <div class="tabs" *ngIf="actualRoute == 3">

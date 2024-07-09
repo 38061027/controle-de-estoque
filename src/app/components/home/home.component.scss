@@ -6,15 +6,20 @@
     flex-direction: row;
 }
 
-.title {
+.content-title {
 
     width: 100%;
     position: absolute;
     top: 25px;
     text-align: center;
+    
 
-    span {
+    .logo {
         font-size: larger;
+    }
+
+    .title{
+        color: rgb(11, 179, 230);
     }
 
 }
@@ -26,6 +31,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
 }
 
 

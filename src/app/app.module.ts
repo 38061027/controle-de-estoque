@@ -11,7 +11,10 @@ import { RelatorioComponent } from './components/relatorio/relatorio.component';
 import { VendasComponent } from './components/vendas/vendas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from './components/shared-components/modal/modal.component';
+
 
 
 @NgModule({
@@ -23,16 +26,19 @@ import { HttpClientModule } from '@angular/common/http'
     ProdutosComponent,
     RelatorioComponent,
     VendasComponent,
-
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[MaterialModule]
 })
 export class AppModule { }
