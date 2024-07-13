@@ -22,10 +22,12 @@ export class DashboardComponent implements OnInit {
   numeroClientes: number = 0
   numeroProdutos: number = 0
 
-  @ViewChild("meuCanvas", { static: true }) element!: ElementRef
+  @ViewChild("chartLine", { static: true }) elementLine!: ElementRef
+  @ViewChild("chartPie", { static: true }) elementPie!: ElementRef
 
   vendas: any[] = [];
-  chart!: Chart
+  chartLine!: Chart
+  chartPie!: Chart | any
 
 
   constructor(private service: SharedService) { }
@@ -35,8 +37,8 @@ export class DashboardComponent implements OnInit {
     this.service.getClients().subscribe(res => this.numeroClientes = res.length)
     Chart.register(...registerables);
     this.getVendas()
-    this.initializeChart()
-
+    this.initializeChartLine()
+    this.initializeChartPie()
   }
 
   getProdutos() {
@@ -57,8 +59,8 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  initializeChart(): void {
-    this.chart = new Chart(this.element.nativeElement, {
+  initializeChartLine(): void {
+    this.chartLine = new Chart(this.elementLine.nativeElement, {
       type: 'bar',
       data: {
         labels: [],
@@ -104,18 +106,65 @@ export class DashboardComponent implements OnInit {
   }
 
 
+  initializeChartPie() {
+    this.chartPie = new Chart(this.elementPie.nativeElement, {
+      type: 'pie',
+      data: { 
+        labels: [],
+        datasets: [
+          {
+            label: 'Vendas',
+            data: [],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)'
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)'
+            ],
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Chart.js Pie Chart'
+          }
+        }
+      },
+    });
+  }
+
+
   getVendas(): void {
     this.service.getVendas().subscribe(res => {
       this.vendas = res.slice(0, 5);
       this.updateChart();
+      this.updateChartPie();
     });
   }
 
 
   updateChart() {
-    this.chart.data.labels = this.vendas.map(el => el.produto)
-    this.chart.data.datasets[0].data = this.vendas.map(el => el.qtd)
-    this.chart.update();
+    this.chartLine.data.labels = this.vendas.map(el => el.produto)
+    this.chartLine.data.datasets[0].data = this.vendas.map(el => el.qtd)
+    this.chartLine.update();
+  }
+
+  updateChartPie() {
+    this.chartPie.data.labels = this.vendas.map(el => el.cliente)
+    this.chartPie.data.datasets[0].data = this.vendas.map(el => el.qtd)
+    this.chartPie.update();
   }
 
 

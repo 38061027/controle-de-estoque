@@ -1,11 +1,12 @@
 
 
 .header-products{
-    border: 1px solid blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   gap: 50px;
+  border-bottom: 1px solid black;
 }
 
 
@@ -15,4 +16,13 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
+  width: 800px;
+
+  table{
+    width: 100%;
+  
+  }
+  
+
 }
+

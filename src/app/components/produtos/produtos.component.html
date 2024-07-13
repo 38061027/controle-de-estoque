@@ -1,4 +1,4 @@
-<div class="conatiner-products">
+<div class="container-products">
 
 
     <header class="header-products">
@@ -6,53 +6,55 @@
         <h2>Usuário</h2>
     </header>
 
-   
-        <div class="table">
-            <h1 style="color: green;">Produtos em estoque</h1>
-            <table mat-table [dataSource]="productsEstoque" class="mat-elevation-z8">
-                <ng-container matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef> Id </th>
-                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-                </ng-container>
-                <ng-container matColumnDef="produto">
-                    <th mat-header-cell *matHeaderCellDef> Produto </th>
-                    <td mat-cell *matCellDef="let element"> {{element.produto}} </td>
-                </ng-container>
-                <ng-container matColumnDef="qtd">
-                    <th mat-header-cell *matHeaderCellDef> Qtd </th>
-                    <td mat-cell *matCellDef="let element"> {{element.qtd}} </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor/u </th>
-                    <td mat-cell *matCellDef="let element"> {{element.valor}} R$</td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-        </div>
-        <div class="table">
-            <h1 style="color: red;">Produtos em falta</h1>
-            <table mat-table [dataSource]="productsFalta" class="mat-elevation-z8">
-                <ng-container matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef> Id </th>
-                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-                </ng-container>
-                <ng-container matColumnDef="produto">
-                    <th mat-header-cell *matHeaderCellDef> Produto </th>
-                    <td mat-cell *matCellDef="let element"> {{element.produto}} </td>
-                </ng-container>
-                <ng-container matColumnDef="qtd">
-                    <th mat-header-cell *matHeaderCellDef> Qtd </th>
-                    <td mat-cell *matCellDef="let element" style="color: red;"> {{element.qtd}} </td>
-                </ng-container>
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef> Valor/u </th>
-                    <td mat-cell *matCellDef="let element"> {{element.valor}} R$</td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-        </div>
-    
+    <div class="content-table">
+        
+            <div class="table">
+                <h1 style="color: green;">Produtos em estoque</h1>
+                <table mat-table [dataSource]="productsEstoque" class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="produto">
+                        <th mat-header-cell *matHeaderCellDef> Produto </th>
+                        <td mat-cell *matCellDef="let element"> {{element.produto}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="qtd">
+                        <th mat-header-cell *matHeaderCellDef> Qtd </th>
+                        <td mat-cell *matCellDef="let element"> {{element.qtd}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="valor">
+                        <th mat-header-cell *matHeaderCellDef> Valor/u </th>
+                        <td mat-cell *matCellDef="let element"> {{element.valor}} R$</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <div class="table">
+                <h1 style="color: red;">Produtos em falta</h1>
+                <table mat-table [dataSource]="productsFalta" class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Id </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="produto">
+                        <th mat-header-cell *matHeaderCellDef> Produto </th>
+                        <td mat-cell *matCellDef="let element"> {{element.produto}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="qtd">
+                        <th mat-header-cell *matHeaderCellDef> Qtd </th>
+                        <td mat-cell *matCellDef="let element" style="color: red;"> {{element.qtd}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="valor">
+                        <th mat-header-cell *matHeaderCellDef> Valor/u </th>
+                        <td mat-cell *matCellDef="let element"> {{element.valor}} R$</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        
+    </div>
 
 </div>

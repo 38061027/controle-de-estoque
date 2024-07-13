@@ -1,0 +1,17 @@
+.vendas-content{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content-form{
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

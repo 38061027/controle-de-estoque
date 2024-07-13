@@ -31,6 +31,13 @@ export class SharedService {
     return this.http.get<any[]>(`${this.url}/clientes`)
   }
 
+  updateClientes(customer:any, id:string):Observable<any>{
+    return this.http.put<any>(`${this.url}/clientes/${id}`,customer)
+  }
+
+  sendVendas(produto:any):Observable<any>{
+    return this.http.post<any>(`${this.url}/vendas`,produto)
+  }
 
 
   sendProducts(produto:any):Observable<any>{

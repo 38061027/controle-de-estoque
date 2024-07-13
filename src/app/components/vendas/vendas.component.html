@@ -1,1 +1,32 @@
-<p>vendas works!</p>
+<div class="vendas-content">
+    <header>
+        <h2>Registrar venda</h2>
+        <h2>Usuário</h2>
+    </header>
+
+    <form class="content-form" (ngSubmit)="onSubmit()" [formGroup]="vendas">
+        <mat-form-field>
+          <mat-label>Cliente</mat-label>
+          <mat-select formControlName="cliente">
+            <mat-option *ngFor="let cliente of clientes" [value]="cliente.name">{{cliente.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Produto</mat-label>
+          <mat-select formControlName="produto">
+            <mat-option *ngFor="let produto of produtos" [value]="produto.produto">{{produto.produto}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+          <mat-label>Quantidade</mat-label>
+          <input formControlName="qtd" matInput type="number" class="example-right-align" placeholder="0" />
+        </mat-form-field>
+   
+        <div class="btn-content">
+          <button mat-raised-button color="primary" type="submit">Vender</button>
+        </div>
+      </form>
+      
+   
+      
+</div>

@@ -7,7 +7,7 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./clientes.component.scss']
 })
 export class ClientesComponent implements OnInit{
-  displayedColumns: string[] = ['id', 'name', 'telefone'];
+  displayedColumns: string[] = ['id', 'name', 'telefone', 'valor'];
   clientes!:any[]
 
   constructor(private service:SharedService){}

@@ -7,7 +7,6 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { ProdutosComponent } from './components/produtos/produtos.component';
-import { RelatorioComponent } from './components/relatorio/relatorio.component';
 import { VendasComponent } from './components/vendas/vendas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
@@ -24,7 +23,6 @@ import { ModalComponent } from './components/shared-components/modal/modal.compo
     DashboardComponent,
     ClientesComponent,
     ProdutosComponent,
-    RelatorioComponent,
     VendasComponent,
     ModalComponent
   ],

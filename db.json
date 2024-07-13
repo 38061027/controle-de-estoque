@@ -65,65 +65,55 @@
     {
       "id": "1",
       "name": "josé",
-      "telefone":"284"
+      "telefone": "284",
+      "valor": 0
     },
     {
       "id": "2",
       "name": "daniel",
-      "telefone":"222"
+      "telefone": "222",
+      "valor": 0
     },
     {
       "id": "3",
       "name": "pedro",
-      "telefone":"122"
+      "telefone": "122",
+      "valor": 0
     },
     {
       "id": "4",
       "name": "gabriel",
-      "telefone":"987"
-    },
-    {
-      "id": "4",
-      "name": "miguel",
-      "telefone":"563"
-    }
-  ],
-  "vendas": [
-    {
-      "id": "1",
-      "produto": "arroz",
-      "qtd": 1,
-      "valor": 0
-    },
-    {
-      "id": "2",
-      "produto": "feijão",
-      "qtd": 2,
-      "valor": 0
-    },
-    {
-      "id": "3",
-      "produto": "leite",
-      "qtd": 2,
-      "valor": 0
-    },
-    {
-      "id": "4",
-      "produto": "macarrão",
-      "qtd": 3,
+      "telefone": "987",
       "valor": 0
     },
     {
       "id": "5",
-      "produto": "carne",
-      "qtd": 1,
+      "name": "miguel",
+      "telefone": "563",
       "valor": 0
+    }
+  ],
+  "vendas": [
+    {
+      "id": "2",
+      "cliente": "daniel",
+      "produto": "feijão",
+      "qtd": 2,
+      "valor": 30
     },
     {
-      "id": "6",
-      "produto": "pão",
+      "id": "7",
+      "cliente": "gabriel",
+      "produto": "presunto",
+      "qtd": 6,
+      "valor": 150
+    },
+    {
+      "id": "3",
+      "cliente": "miguel",
+      "produto": "leite",
       "qtd": 1,
-      "valor": 0
+      "valor": 12
     }
   ]
 }

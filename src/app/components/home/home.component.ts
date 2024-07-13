@@ -14,7 +14,6 @@ export class HomeComponent {
     {name:'Produtos', num:2},
     {name:'Clientes',  num:3},
     {name:'Vendas',  num:4},
-    {name:'Relatório',num:5},
   ]
 
 
