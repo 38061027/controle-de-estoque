@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   totalVendas: number = 0
   numeroClientes: number = 0
   numeroProdutos: number = 0
+  produtoVendido: string = ''
 
   @ViewChild("chartLine", { static: true }) elementLine!: ElementRef
   @ViewChild("chartPie", { static: true }) elementPie!: ElementRef
@@ -136,10 +137,6 @@ export class DashboardComponent implements OnInit {
           legend: {
             position: 'top',
           },
-          title: {
-            display: true,
-            text: 'Chart.js Pie Chart'
-          }
         }
       },
     });
@@ -149,6 +146,16 @@ export class DashboardComponent implements OnInit {
   getVendas(): void {
     this.service.getVendas().subscribe(res => {
       this.vendas = res.slice(0, 5);
+      let maisVendido = 0
+      res.forEach((venda)=>{
+        if(venda.qtd > maisVendido){
+          maisVendido = venda.qtd
+        }
+        if(maisVendido == venda.qtd){
+          this.produtoVendido = venda.produto
+        }
+      })
+      console.log(this.produtoVendido)
       this.updateChart();
       this.updateChartPie();
     });

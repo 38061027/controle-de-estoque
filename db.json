@@ -114,6 +114,13 @@
       "produto": "leite",
       "qtd": 1,
       "valor": 12
+    },
+    {
+      "id": "9",
+      "cliente": "josé",
+      "produto": "abacate",
+      "qtd": 4,
+      "valor": 32
     }
   ]
 }

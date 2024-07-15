@@ -1,46 +1,32 @@
 <div class="container-dash">
+  <div class="content-dash">
+    <div id="box-dash">
+      <span class="material-symbols-outlined"> trending_up </span>
+      <h3>Total {{ totalVendas }} R$</h3>
+    </div>
+    <div id="box-dash">
+      <span class="material-symbols-outlined"> groups </span>
+      <h3>N clientes {{ numeroClientes }}</h3>
+    </div>
+    <div id="box-dash">
+      <span class="material-symbols-outlined"> grocery </span>
+      <h3>Produtos {{ numeroProdutos }}</h3>
+    </div>
+    <div id="box-dash">
+      <span class="material-symbols-outlined"> sell </span>
+      <h3>Produto mais vendido - {{produtoVendido}}</h3>
+    </div>
+  </div>
 
-    <div class="content-dash">
-
-        <div id="box-dash">
-            <span class="material-symbols-outlined">
-                sell
-            </span>
-            <h3>Total {{totalVendas}} R$</h3>
-        </div>
-        <div id="box-dash">
-            <span class="material-symbols-outlined">
-                groups
-            </span>
-            <h3>N clientes {{numeroClientes}}</h3>
-        </div>
-        <div id="box-dash">
-            <span class="material-symbols-outlined">
-                grocery
-            </span>
-            <h3>Produtos {{numeroProdutos}}</h3>
-        </div>
+  <div class="content-chart">
+    <div class="chart">
+      <h2>Últimos 5 produtos vendidos</h2>
+      <canvas #chartLine class="line-chart"> </canvas>
     </div>
 
-
-
-
-    <div class="content-chart">
-        <div>
-            <h2>Últimos 5 produtos vendidos</h2>
-            <canvas #chartLine class="line-chart">
-            </canvas>
-        </div>
-
-
-        <div>
-            <h2>Os 3 melhores clientes</h2>
-            <canvas #chartPie class="pie-chart">
-            </canvas>
-
-        </div>
-
+    <div class="chart">
+      <h2>Vendas por clientes</h2>
+      <canvas #chartPie class="pie-chart"> </canvas>
     </div>
-
-
+  </div>
 </div>
