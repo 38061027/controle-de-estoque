@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { map } from 'rxjs';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -49,6 +50,9 @@ export class VendasComponent implements OnInit {
     this.service.getClients().subscribe((res) => (this.clientes = res));
   }
   getProdutos() {
-    this.service.getProdutos().subscribe((res) => (this.produtos = res));
+    this.service
+      .getProdutos()
+      .pipe(map((produto: any[]) => produto.filter((el) => el.qtd !== 0)))
+      .subscribe((res) => (this.produtos = res));
   }
 }

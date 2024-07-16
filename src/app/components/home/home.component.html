@@ -1,34 +1,28 @@
 <main class="container-home">
+  <menu class="menu-lateral">
+    <div class="content-title">
+      <span id="logo" class="material-symbols-outlined"> local_shipping </span>
+      <h1 class="title">Estoque BR</h1>
+    </div>
+    <div class="content-menu">
+      <ul *ngFor="let route of routers">
+        <li (click)="tabs(route.num)">
+          {{ route.name }}
+        </li>
+      </ul>
+    </div>
+  </menu>
 
-    <menu class="menu-lateral">
-        <div class="content-title">
-            <span id="logo" class="material-symbols-outlined">
-                local_shipping
-                </span>
-                <h1 class="title">Estoque BR</h1>
-        </div>
-        <div class="content-menu">
-            <ul *ngFor="let route of routers">
-                <li (click)="tabs(route.num)">
-                    {{route.name}}
-                </li>
-            </ul>
-
-        </div>
-    </menu>
-
-<div *ngIf="actualRoute == 1" class="tabs">
+  <div *ngIf="actualRoute == 4" class="tabs">
     <app-dashboard></app-dashboard>
-</div>
-<div class="tabs"*ngIf="actualRoute == 2">
+  </div>
+  <div class="tabs" *ngIf="actualRoute == 1">
     <app-produtos></app-produtos>
-</div>
-<div class="tabs" *ngIf="actualRoute == 3">
+  </div>
+  <div class="tabs" *ngIf="actualRoute == 3">
     <app-clientes></app-clientes>
-</div>
-<div class="tabs" *ngIf="actualRoute == 4">
+  </div>
+  <div class="tabs" *ngIf="actualRoute == 2">
     <app-vendas></app-vendas>
-</div>
-
-
+  </div>
 </main>

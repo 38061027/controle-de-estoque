@@ -1,28 +1,10 @@
 {
   "produtos": [
     {
-      "id": "1",
-      "produto": "arroz",
-      "qtd": 3,
-      "valor": 20
-    },
-    {
-      "id": "2",
-      "produto": "feijão",
-      "qtd": 5,
-      "valor": 15
-    },
-    {
-      "id": "3",
-      "produto": "leite",
-      "qtd": 6,
-      "valor": 12
-    },
-    {
-      "id": "4",
-      "produto": "macarrão",
-      "qtd": 5,
-      "valor": 21
+      "produto": "pera",
+      "valor": 2,
+      "qtd": 2,
+      "id": "4"
     },
     {
       "id": "5",
@@ -31,20 +13,14 @@
       "valor": 25
     },
     {
-      "id": "6",
       "produto": "mortadela",
-      "qtd": 0,
-      "valor": 25
+      "valor": 20,
+      "qtd": 12,
+      "id": "6"
     },
     {
       "id": "7",
       "produto": "presunto",
-      "qtd": 0,
-      "valor": 25
-    },
-    {
-      "id": "8",
-      "produto": "pão",
       "qtd": 0,
       "valor": 25
     },
@@ -59,6 +35,18 @@
       "produto": "mel",
       "valor": 5,
       "qtd": 0
+    },
+    {
+      "id": "11",
+      "produto": "mussarela",
+      "valor": 23,
+      "qtd": 5
+    },
+    {
+      "id": "12",
+      "produto": "maça",
+      "valor": 2,
+      "qtd": 2
     }
   ],
   "clientes": [
@@ -102,25 +90,18 @@
       "valor": 30
     },
     {
-      "id": "7",
-      "cliente": "gabriel",
-      "produto": "presunto",
-      "qtd": 6,
-      "valor": 150
-    },
-    {
-      "id": "3",
-      "cliente": "miguel",
-      "produto": "leite",
-      "qtd": 1,
-      "valor": 12
-    },
-    {
       "id": "9",
       "cliente": "josé",
       "produto": "abacate",
       "qtd": 4,
       "valor": 32
+    },
+    {
+      "id": "3",
+      "cliente": "gabriel",
+      "produto": "leite",
+      "qtd": 2,
+      "valor": 24
     }
   ]
 }

@@ -1,19 +1,53 @@
-<form class="form-container" [formGroup]="cadastrarProduto" (ngSubmit)="onSubmit()"> 
-    <mat-form-field>
-        <mat-label>Nome do produto</mat-label>
-        <input formControlName="produto" matInput>
-    </mat-form-field>
-    <mat-form-field floatLabel="always">
-        <mat-label>Amount</mat-label>
-        <input formControlName="valor" matInput type="number" class="example-right-align" placeholder="0" />
-        <span matTextPrefix>$&nbsp;</span>
-        <span matTextSuffix>.00</span>
-    </mat-form-field>
-    <mat-form-field floatLabel="always">
-        <mat-label>Quantidade</mat-label>
-        <input formControlName="qtd" matInput type="number" class="example-right-align" placeholder="0" />
-    </mat-form-field>
-    <div class="btn-content">
-        <button mat-raised-button color="primary" type="submit">Casdastrar</button>
-      </div>
+<form
+#Out
+  class="form-container"
+  [formGroup]="cadastrarProduto"
+  (ngSubmit)="onSubmit()"
+  *ngIf="method == 'editar' || method == ''; else deletar"
+>
+  <mat-form-field>
+    <mat-label>Nome do produto</mat-label>
+    <input formControlName="produto" matInput />
+  </mat-form-field>
+  <mat-form-field floatLabel="always">
+    <mat-label>Amount</mat-label>
+    <input
+      formControlName="valor"
+      matInput
+      type="number"
+      class="example-right-align"
+      placeholder="0"
+    />
+    <span matTextPrefix>$&nbsp;</span>
+    <span matTextSuffix>.00</span>
+  </mat-form-field>
+  <mat-form-field floatLabel="always">
+    <mat-label>Quantidade</mat-label>
+    <input
+      formControlName="qtd"
+      matInput
+      type="number"
+      class="example-right-align"
+      placeholder="0"
+    />
+  </mat-form-field>
+  <div class="btn-content">
+    <button mat-raised-button color="primary" type="submit">Salvar</button>
+  </div>
 </form>
+
+<ng-template #deletar>
+  <h2 mat-dialog-title>Deletar produto</h2>
+  <mat-dialog-content> Você realmente quer deletar? </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button
+      mat-button
+      mat-dialog-close
+      cdkFocusInitial
+      (click)="deleteProduct()"
+    >
+      Deletar
+    </button>
+  </mat-dialog-actions>
+</ng-template>
