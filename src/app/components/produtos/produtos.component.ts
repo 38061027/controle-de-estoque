@@ -10,7 +10,7 @@ import { ModalComponent } from '../shared-components/modal/modal.component';
   styleUrls: ['./produtos.component.scss'],
 })
 export class ProdutosComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'produto', 'qtd', 'valor', 'acoes'];
+  displayedColumns: string[] = ['id', 'produto', 'quantity', 'price', 'acoes'];
   productsStock!: any[];
   productsNoStock!: any[];
   lastId = 0;
@@ -25,7 +25,7 @@ export class ProdutosComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalComponent, {});
     this.service.reqMethod('');
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(() => {
       this.getProductsEstoque();
       this.getProductsFalta();
     });
@@ -45,15 +45,15 @@ export class ProdutosComponent implements OnInit {
 
   getProductsEstoque() {
     this.service
-      .getProdutos()
-      .pipe(map((res: any[]) => res.filter((el) => el.qtd !== 0)))
+      .getProducts()
+      .pipe(map((res: any[]) => res.filter((el) => el.quantity !== 0)))
       .subscribe((res) => (this.productsStock = res));
   }
 
   getProductsFalta() {
     this.service
-      .getProdutos()
-      .pipe(map((res: any[]) => res.filter((el) => el.qtd == 0)))
+      .getProducts()
+      .pipe(map((res: any[]) => res.filter((el) => el.quantity == 0)))
       .subscribe((res) => (this.productsNoStock = res));
   }
 }

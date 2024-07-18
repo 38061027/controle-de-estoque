@@ -4,20 +4,19 @@ import { SharedService } from 'src/app/services/shared.service';
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.scss']
+  styleUrls: ['./clientes.component.scss'],
 })
-export class ClientesComponent implements OnInit{
-  displayedColumns: string[] = ['id', 'name', 'telefone', 'valor'];
-  clientes!:any[]
+export class ClientesComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'name', 'phone', 'price'];
+  clientes!: any[];
 
-  constructor(private service:SharedService){}
+  constructor(private service: SharedService) {}
 
   ngOnInit(): void {
-    this.getClientes()
+    this.getClientes();
   }
 
-  getClientes(){
-    this.service.getClients().subscribe(res => this.clientes = res)
+  getClientes() {
+    this.service.getClients().subscribe((res) => (this.clientes = res));
   }
-
 }

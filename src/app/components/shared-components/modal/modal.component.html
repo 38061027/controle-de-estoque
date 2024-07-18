@@ -1,7 +1,7 @@
 <form
 #Out
   class="form-container"
-  [formGroup]="cadastrarProduto"
+  [formGroup]="registerProduct"
   (ngSubmit)="onSubmit()"
   *ngIf="method == 'editar' || method == ''; else deletar"
 >
@@ -12,7 +12,7 @@
   <mat-form-field floatLabel="always">
     <mat-label>Amount</mat-label>
     <input
-      formControlName="valor"
+      formControlName="price"
       matInput
       type="number"
       class="example-right-align"

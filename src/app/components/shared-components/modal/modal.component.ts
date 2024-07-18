@@ -15,7 +15,7 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
-  cadastrarProduto!: FormGroup;
+  registerProduct!: FormGroup;
   method: string = '';
   id!: string;
 
@@ -24,9 +24,9 @@ export class ModalComponent implements OnInit {
     private fb: FormBuilder,
     private service: SharedService
   ) {
-    this.cadastrarProduto = this.fb.group({
+    this.registerProduct = this.fb.group({
       produto: ['', Validators.required],
-      valor: ['', Validators.required],
+      price: ['', Validators.required],
       qtd: ['', Validators.required],
     });
   }
@@ -41,7 +41,7 @@ export class ModalComponent implements OnInit {
 
     if (this.method == 'editar') {
       if (this.id) {
-        this.service.getProdutos().subscribe((res) => {
+        this.service.getProducts().subscribe((res) => {
           const produto = res.find((el: any) => el.id == this.id);
           if (produto) {
             this.preencherFormulario(produto);
@@ -58,9 +58,9 @@ export class ModalComponent implements OnInit {
   }
 
   preencherFormulario(produto: any): void {
-    this.cadastrarProduto.setValue({
+    this.registerProduct.setValue({
       produto: produto.produto,
-      valor: produto.valor,
+      price: produto.price,
       qtd: produto.qtd,
     });
   }
@@ -70,12 +70,12 @@ export class ModalComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.cadastrarProduto.valid && this.method == '') {
-      this.service.sendProducts(this.cadastrarProduto.value).subscribe();
+    if (this.registerProduct.valid && this.method == '') {
+      this.service.sendProducts(this.registerProduct.value).subscribe();
     }
-    if (this.cadastrarProduto.valid && this.method == 'editar') {
+    if (this.registerProduct.valid && this.method == 'editar') {
       this.service
-        .editProducts(this.cadastrarProduto.value, this.id)
+        .editProducts(this.registerProduct.value, this.id)
         .subscribe();
     }
   }

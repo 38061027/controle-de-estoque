@@ -3,21 +3,21 @@
     <h2>Registrar venda</h2>
   </header>
 
-  <form class="content-form" (ngSubmit)="onSubmit()" [formGroup]="vendas">
+  <form class="content-form" (ngSubmit)="onSubmit()" [formGroup]="sales">
     <div class="box">
-      <mat-form-field style="width: 400px;">
+      <mat-form-field style="width: 400px">
         <mat-label>Cliente</mat-label>
-        <mat-select formControlName="cliente" >
-          <mat-option *ngFor="let cliente of clientes" [value]="cliente.name">{{
-            cliente.name
+        <mat-select formControlName="costumer">
+          <mat-option *ngFor="let costumer of costumers" [value]="costumer.name">{{
+            costumer.name
           }}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field style="width: 400px;">
+      <mat-form-field style="width: 400px">
         <mat-label>Produto</mat-label>
         <mat-select formControlName="produto">
           <mat-option
-            *ngFor="let produto of produtos"
+            *ngFor="let produto of products"
             [value]="produto.produto"
             >{{ produto.produto }}</mat-option
           >
@@ -25,20 +25,10 @@
       </mat-form-field>
     </div>
     <div class="box">
-      <mat-form-field floatLabel="always" style="width: 400px;">
+      <mat-form-field floatLabel="always" style="width: 400px">
         <mat-label>Quantidade</mat-label>
         <input
-          formControlName="qtd"
-          matInput
-          type="number"
-          class="example-right-align"
-          placeholder="0"
-        />
-      </mat-form-field>
-      <mat-form-field floatLabel="always" style="width: 400px;">
-        <mat-label>Valor Total</mat-label>
-        <input
-          formControlName="qtd"
+          formControlName="quantity"
           matInput
           type="number"
           class="example-right-align"

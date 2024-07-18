@@ -14,7 +14,7 @@ export class SharedService {
   currentId = this.id.asObservable();
 
   constructor(private http: HttpClient) {
-    this.getProdutos().subscribe((produtos: any[] | undefined) => {
+    this.getProducts().subscribe((produtos: any[] | undefined) => {
       if (produtos && produtos.length > 0) {
         const lastProductId = produtos[produtos.length - 1];
         this.lastId = parseInt(lastProductId.id, 10);
@@ -29,7 +29,9 @@ export class SharedService {
     this.id.next(id);
   }
 
-  getProdutos(): Observable<any[]> {
+  // Req products
+  
+  getProducts(): Observable<any[]> {
     return this.http.get<any[]>(`${this.url}/produtos`);
   }
 
@@ -47,6 +49,9 @@ export class SharedService {
     return this.http.delete(`${this.url}/produtos/${id}`);
   }
 
+
+  // Req costumer
+
   getClients(): Observable<any[]> {
     return this.http.get<any[]>(`${this.url}/clientes`);
   }
@@ -55,11 +60,18 @@ export class SharedService {
     return this.http.put<any>(`${this.url}/clientes/${id}`, customer);
   }
 
+
+  // Req sales
+
   sendVendas(produto: any): Observable<any> {
     return this.http.post<any>(`${this.url}/vendas`, produto);
   }
 
   getVendas(): Observable<any[]> {
     return this.http.get<any[]>(`${this.url}/vendas`);
+  }
+
+  updateSales(sales: any, id: string):Observable<any>{
+    return this.http.put<any>(`${this.url}/vendas/${id}`, sales);
   }
 }

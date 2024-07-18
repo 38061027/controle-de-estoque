@@ -2,106 +2,107 @@
   "produtos": [
     {
       "produto": "pera",
-      "valor": 2,
-      "qtd": 2,
+      "price": 2,
+      "quantity": 2,
       "id": "4"
     },
     {
       "id": "5",
       "produto": "carne",
-      "qtd": 3,
-      "valor": 25
-    },
-    {
-      "produto": "mortadela",
-      "valor": 20,
-      "qtd": 12,
-      "id": "6"
+      "quantity": 3,
+      "price": 25
     },
     {
       "id": "7",
       "produto": "presunto",
-      "qtd": 0,
-      "valor": 25
+      "quantity": 0,
+      "price": 25
     },
     {
       "id": "9",
       "produto": "abacate",
-      "valor": 8,
-      "qtd": 5
+      "price": 8,
+      "quantity": 5
     },
     {
       "id": "10",
       "produto": "mel",
-      "valor": 5,
-      "qtd": 0
+      "price": 5,
+      "quantity": 0
     },
     {
       "id": "11",
       "produto": "mussarela",
-      "valor": 23,
-      "qtd": 5
+      "price": 23,
+      "quantity": 5
     },
     {
       "id": "12",
       "produto": "maça",
-      "valor": 2,
-      "qtd": 2
+      "price": 2,
+      "quantity": 2
     }
   ],
   "clientes": [
     {
       "id": "1",
       "name": "josé",
-      "telefone": "284",
-      "valor": 0
+      "phone": "284",
+      "price": 0
     },
     {
       "id": "2",
       "name": "daniel",
-      "telefone": "222",
-      "valor": 0
+      "phone": "222",
+      "price": 0
     },
     {
       "id": "3",
       "name": "pedro",
-      "telefone": "122",
-      "valor": 0
+      "phone": "122",
+      "price": 0
     },
     {
       "id": "4",
       "name": "gabriel",
-      "telefone": "987",
-      "valor": 0
+      "phone": "987",
+      "price": 0
     },
     {
       "id": "5",
       "name": "miguel",
-      "telefone": "563",
-      "valor": 0
+      "phone": "563",
+      "price": 0
     }
   ],
   "vendas": [
     {
       "id": "2",
-      "cliente": "daniel",
+      "costumer": "daniel",
       "produto": "feijão",
-      "qtd": 2,
-      "valor": 30
+      "quantity": 2,
+      "price": 30
     },
     {
-      "id": "9",
-      "cliente": "josé",
-      "produto": "abacate",
-      "qtd": 4,
-      "valor": 32
+      "costumer": "josé",
+      "produto": "pera",
+      "quantity": 3,
+      "price": 6,
+      "id": "9"
     },
     {
       "id": "3",
-      "cliente": "gabriel",
+      "costumer": "gabriel",
       "produto": "leite",
-      "qtd": 2,
-      "valor": 24
+      "quantity": 2,
+      "price": 24
+    },
+    {
+      "id": "12",
+      "costumer": "pedro",
+      "produto": "maça",
+      "quantity": 4,
+      "price": 8
     }
   ]
 }

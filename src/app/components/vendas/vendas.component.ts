@@ -9,17 +9,17 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./vendas.component.scss'],
 })
 export class VendasComponent implements OnInit {
-  vendas!: FormGroup;
-  clientes!: any[];
-  produtos!: any[];
+  sales!: FormGroup;
+  costumers!: any[];
+  products!: any[];
   isDisabled = true;
 
   constructor(private fb: FormBuilder, private service: SharedService) {
-    this.vendas = this.fb.group({
-      cliente: ['', Validators.required],
+    this.sales = this.fb.group({
+      costumer: ['', Validators.required],
       produto: ['', Validators.required],
-      qtd: ['', Validators.required],
-      valor: [''],
+      quantity: ['', Validators.required],
+      price: [''],
       id: [''],
     });
   }
@@ -28,31 +28,47 @@ export class VendasComponent implements OnInit {
     this.onSubmit();
     this.getClientes();
     this.getProdutos();
-    this.vendas.valueChanges.subscribe((res) => {
-      this.produtos.forEach((produto) => {
-        if (produto.produto === res.produto) {
-          const valor = res.qtd * produto.valor;
-          const id = produto.id;
-          this.vendas.patchValue({ valor, id }, { emitEvent: false });
+    this.sales.valueChanges.subscribe((res) => {
+      this.products.forEach((product) => {
+        if (product.produto === res.produto) {
+          const price = res.quantity * product.price;
+          const id = product.id;
+          this.sales.patchValue({ price, id }, { emitEvent: false });
         }
       });
     });
   }
 
   onSubmit() {
-    if (this.vendas.valid) {
-      console.log(this.vendas.value);
-      this.service.sendVendas(this.vendas.value).subscribe();
+    if (this.sales.valid) {
+      this.service.getVendas().subscribe((clients: any[]) => {
+        const currentClient = this.sales.get('costumer')!.value;
+        const existingClient = clients.find(
+          (c: any) => c.costumer === currentClient
+        );
+
+        if (existingClient) {
+          this.service
+            .updateSales(this.sales.value, existingClient.id)
+            .subscribe();
+        } else {
+          this.service.sendVendas(this.sales.value).subscribe();
+        }
+      });
     }
   }
 
   getClientes() {
-    this.service.getClients().subscribe((res) => (this.clientes = res));
+    this.service.getClients().subscribe((res) => (this.costumers = res));
   }
   getProdutos() {
     this.service
-      .getProdutos()
-      .pipe(map((produto: any[]) => produto.filter((el) => el.qtd !== 0)))
-      .subscribe((res) => (this.produtos = res));
+      .getProducts()
+      .pipe(
+        map((products: any[]) =>
+          products.filter((product) => product.quantity !== 0)
+        )
+      )
+      .subscribe((res) => (this.products = res));
   }
 }

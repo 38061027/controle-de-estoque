@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Chart,registerables } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
 import { SharedService } from 'src/app/services/shared.service';
 
 export interface PeriodicElement {
@@ -9,56 +9,54 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['id', 'produto', 'qtd', 'valor'];
-  products!: any[]
-  totalVendas: number = 0
-  numeroClientes: number = 0
-  numeroProdutos: number = 0
-  produtoVendido: string = ''
+  products!: any[];
+  totalVendas: number = 0;
+  quantityCostumer: number = 0;
+  quantityProducts: number = 0;
+  saleProduct: string = '';
 
-  @ViewChild("chartLine", { static: true }) elementLine!: ElementRef
-  @ViewChild("chartPie", { static: true }) elementPie!: ElementRef
+  @ViewChild('chartLine', { static: true }) elementLine!: ElementRef;
+  @ViewChild('chartPie', { static: true }) elementPie!: ElementRef;
 
-  vendas: any[] = [];
-  chartLine!: Chart
-  chartPie!: Chart | any
+  sales: any[] = [];
+  chartLine!: Chart;
+  chartPie!: Chart | any;
 
-
-  constructor(private service: SharedService) { }
+  constructor(private service: SharedService) {}
 
   ngOnInit(): void {
-    this.getProdutos()
-    this.service.getClients().subscribe(res => this.numeroClientes = res.length)
+    this.getProdutos();
+    this.service
+      .getClients()
+      .subscribe((res) => (this.quantityCostumer = res.length));
     Chart.register(...registerables);
-    this.getVendas()
-    this.initializeChartLine()
-    this.initializeChartPie()
+    this.getVendas();
+    this.initializeChartLine();
+    this.initializeChartPie();
   }
 
   getProdutos() {
-    this.service.getProdutos().subscribe((res: any[]) => {
-      this.numeroProdutos = res.length
-      this.service.getVendas().subscribe((vendas: any[]) => {
-        this.products = vendas.slice(0,5)
-        res.forEach(porducts => {
-          vendas.forEach(s => {
+    this.service.getProducts().subscribe((res: any[]) => {
+      this.quantityProducts = res.length;
+      this.service.getVendas().subscribe((sales: any[]) => {
+        this.products = sales.slice(0, 5);
+        res.forEach((porducts) => {
+          sales.forEach((s) => {
             if (porducts.produto === s.produto) {
-              this.totalVendas += s.qtd * porducts.valor
+              this.totalVendas += s.quantity * porducts.price;
             }
-          })
-        })
-
-      })
-    })
+          });
+        });
+      });
+    });
   }
-
 
   initializeChartLine(): void {
     this.chartLine = new Chart(this.elementLine.nativeElement, {
@@ -71,9 +69,8 @@ export class DashboardComponent implements OnInit {
             data: [],
             borderColor: 'rgba(75, 192, 192, 1)',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            
-          }
-        ]
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -83,34 +80,32 @@ export class DashboardComponent implements OnInit {
             title: {
               display: true,
               text: 'Produtos',
-              color: 'rgba(0, 0, 0, 1)'
+              color: 'rgba(0, 0, 0, 1)',
             },
             ticks: {
-              color: 'rgba(0, 0, 0, 1)'
-            }
+              color: 'rgba(0, 0, 0, 1)',
+            },
           },
           y: {
             display: true,
             title: {
               display: true,
               text: 'Quantidade',
-              color: 'rgba(0, 0, 0, 1)'
+              color: 'rgba(0, 0, 0, 1)',
             },
             ticks: {
-              color: 'rgba(0, 0, 0, 1)'
-            }
-          }
+              color: 'rgba(0, 0, 0, 1)',
+            },
+          },
         },
-        
-      }
+      },
     });
   }
-
 
   initializeChartPie() {
     this.chartPie = new Chart(this.elementPie.nativeElement, {
       type: 'pie',
-      data: { 
+      data: {
         labels: [],
         datasets: [
           {
@@ -120,16 +115,16 @@ export class DashboardComponent implements OnInit {
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',
               'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)'
+              'rgba(75, 192, 192, 1)',
             ],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
               'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)'
+              'rgba(75, 192, 192, 0.2)',
             ],
-          }
-        ]
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -137,42 +132,38 @@ export class DashboardComponent implements OnInit {
           legend: {
             position: 'top',
           },
-        }
+        },
       },
     });
   }
 
-
   getVendas(): void {
-    this.service.getVendas().subscribe(res => {
-      this.vendas = res.slice(0, 5);
-      let maisVendido = 0
-      res.forEach((venda)=>{
-        if(venda.qtd > maisVendido){
-          maisVendido = venda.qtd
+    this.service.getVendas().subscribe((res) => {
+      this.sales = res.slice(0, 5);
+      let bestSalerCounter = 0;
+      res.forEach((sale) => {
+        if (sale.quantity > bestSalerCounter) {
+          bestSalerCounter = sale.quantity;
         }
-        if(maisVendido == venda.qtd){
-          this.produtoVendido = venda.produto
+        if (bestSalerCounter == sale.quantity) {
+          this.saleProduct = sale.produto;
         }
-      })
-      console.log(this.produtoVendido)
+      });
+      console.log(this.saleProduct);
       this.updateChart();
       this.updateChartPie();
     });
   }
 
-
   updateChart() {
-    this.chartLine.data.labels = this.vendas.map(el => el.produto)
-    this.chartLine.data.datasets[0].data = this.vendas.map(el => el.qtd)
+    this.chartLine.data.labels = this.sales.map((el) => el.produto);
+    this.chartLine.data.datasets[0].data = this.sales.map((el) => el.quantity);
     this.chartLine.update();
   }
 
   updateChartPie() {
-    this.chartPie.data.labels = this.vendas.map(el => el.cliente)
-    this.chartPie.data.datasets[0].data = this.vendas.map(el => el.qtd)
+    this.chartPie.data.labels = this.sales.map((el) => el.cliente);
+    this.chartPie.data.datasets[0].data = this.sales.map((el) => el.quantity);
     this.chartPie.update();
   }
-
-
 }
