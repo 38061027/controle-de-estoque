@@ -25,9 +25,9 @@ export class ModalComponent implements OnInit {
     private service: SharedService
   ) {
     this.registerProduct = this.fb.group({
-      produto: ['', Validators.required],
+      product: ['', Validators.required],
       price: ['', Validators.required],
-      qtd: ['', Validators.required],
+      quantity: ['', Validators.required],
     });
   }
   onNoClick(): void {
@@ -57,11 +57,11 @@ export class ModalComponent implements OnInit {
     });
   }
 
-  preencherFormulario(produto: any): void {
+  preencherFormulario(product: any): void {
     this.registerProduct.setValue({
-      produto: produto.produto,
-      price: produto.price,
-      qtd: produto.qtd,
+      product: product.product,
+      price: product.price,
+      quantity: product.quantity,
     });
   }
 

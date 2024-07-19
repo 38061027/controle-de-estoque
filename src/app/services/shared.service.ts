@@ -63,11 +63,11 @@ export class SharedService {
 
   // Req sales
 
-  sendVendas(produto: any): Observable<any> {
+  sendSales(produto: any): Observable<any> {
     return this.http.post<any>(`${this.url}/vendas`, produto);
   }
 
-  getVendas(): Observable<any[]> {
+  getSales(): Observable<any[]> {
     return this.http.get<any[]>(`${this.url}/vendas`);
   }
 

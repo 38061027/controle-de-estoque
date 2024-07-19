@@ -1,6 +1,4 @@
-
-
-.header-products{
+.header-products {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,19 +8,19 @@
 }
 
 
-.table{
+.content-table{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  width: 800px;
-
-  table{
-    width: 100%;
-  
-  }
-  
 
 }
 
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  width: 650px;
+
+  table {
+    width: 100%;
+  }
+}

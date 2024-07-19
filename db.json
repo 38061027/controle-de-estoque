@@ -1,46 +1,52 @@
 {
   "produtos": [
     {
-      "produto": "pera",
-      "price": 2,
+      "product": "pera",
+      "price": 12,
       "quantity": 2,
       "id": "4"
     },
     {
       "id": "5",
-      "produto": "carne",
+      "product": "carne",
       "quantity": 3,
       "price": 25
     },
     {
-      "id": "7",
-      "produto": "presunto",
-      "quantity": 0,
-      "price": 25
+      "product": "presunto",
+      "price": 25,
+      "quantity": 3,
+      "id": "7"
     },
     {
       "id": "9",
-      "produto": "abacate",
+      "product": "abacate",
       "price": 8,
       "quantity": 5
     },
     {
       "id": "10",
-      "produto": "mel",
+      "product": "mel",
       "price": 5,
       "quantity": 0
     },
     {
       "id": "11",
-      "produto": "mussarela",
+      "product": "mussarela",
       "price": 23,
       "quantity": 5
     },
     {
       "id": "12",
-      "produto": "maça",
+      "product": "maça",
       "price": 2,
       "quantity": 2
+    },
+    {
+      "id": "13",
+      "product": "refri",
+      "price": 10,
+      "quantity": 0
     }
   ],
   "clientes": [
@@ -79,13 +85,13 @@
     {
       "id": "2",
       "costumer": "daniel",
-      "produto": "feijão",
+      "product": "feijão",
       "quantity": 2,
       "price": 30
     },
     {
       "costumer": "josé",
-      "produto": "pera",
+      "product": "pera",
       "quantity": 3,
       "price": 6,
       "id": "9"
@@ -93,16 +99,23 @@
     {
       "id": "3",
       "costumer": "gabriel",
-      "produto": "leite",
+      "product": "leite",
       "quantity": 2,
       "price": 24
     },
     {
       "id": "12",
       "costumer": "pedro",
-      "produto": "maça",
+      "product": "maça",
       "quantity": 4,
       "price": 8
+    },
+    {
+      "id": "7",
+      "costumer": "miguel",
+      "product": "presunto",
+      "quantity": 2,
+      "price": 50
     }
   ]
 }

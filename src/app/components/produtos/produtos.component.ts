@@ -10,7 +10,7 @@ import { ModalComponent } from '../shared-components/modal/modal.component';
   styleUrls: ['./produtos.component.scss'],
 })
 export class ProdutosComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'produto', 'quantity', 'price', 'acoes'];
+  displayedColumns: string[] = ['id', 'product', 'price', 'acoes'];
   productsStock!: any[];
   productsNoStock!: any[];
   lastId = 0;

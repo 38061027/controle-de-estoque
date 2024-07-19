@@ -9,9 +9,11 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./vendas.component.scss'],
 })
 export class VendasComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'costumer', 'product', 'amountSpent'];
   sales!: FormGroup;
   costumers!: any[];
   products!: any[];
+  allSales!: any[];
   isDisabled = true;
 
   constructor(private fb: FormBuilder, private service: SharedService) {
@@ -27,6 +29,7 @@ export class VendasComponent implements OnInit {
   ngOnInit(): void {
     this.onSubmit();
     this.getClientes();
+    this.getSales();
     this.getProdutos();
     this.sales.valueChanges.subscribe((res) => {
       this.products.forEach((product) => {
@@ -41,7 +44,7 @@ export class VendasComponent implements OnInit {
 
   onSubmit() {
     if (this.sales.valid) {
-      this.service.getVendas().subscribe((clients: any[]) => {
+      this.service.getSales().subscribe((clients: any[]) => {
         const currentClient = this.sales.get('costumer')!.value;
         const existingClient = clients.find(
           (c: any) => c.costumer === currentClient
@@ -52,7 +55,7 @@ export class VendasComponent implements OnInit {
             .updateSales(this.sales.value, existingClient.id)
             .subscribe();
         } else {
-          this.service.sendVendas(this.sales.value).subscribe();
+          this.service.sendSales(this.sales.value).subscribe();
         }
       });
     }
@@ -70,5 +73,9 @@ export class VendasComponent implements OnInit {
         )
       )
       .subscribe((res) => (this.products = res));
+  }
+
+  getSales() {
+    this.service.getSales().subscribe((res) => (this.allSales = res));
   }
 }

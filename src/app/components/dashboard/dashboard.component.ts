@@ -17,7 +17,7 @@ export interface PeriodicElement {
 export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['id', 'produto', 'qtd', 'valor'];
   products!: any[];
-  totalVendas: number = 0;
+  amountSpent: number = 0;
   quantityCostumer: number = 0;
   quantityProducts: number = 0;
   saleProduct: string = '';
@@ -45,16 +45,6 @@ export class DashboardComponent implements OnInit {
   getProdutos() {
     this.service.getProducts().subscribe((res: any[]) => {
       this.quantityProducts = res.length;
-      this.service.getVendas().subscribe((sales: any[]) => {
-        this.products = sales.slice(0, 5);
-        res.forEach((porducts) => {
-          sales.forEach((s) => {
-            if (porducts.produto === s.produto) {
-              this.totalVendas += s.quantity * porducts.price;
-            }
-          });
-        });
-      });
     });
   }
 
@@ -138,31 +128,31 @@ export class DashboardComponent implements OnInit {
   }
 
   getVendas(): void {
-    this.service.getVendas().subscribe((res) => {
+    this.service.getSales().subscribe((res) => {
       this.sales = res.slice(0, 5);
       let bestSalerCounter = 0;
       res.forEach((sale) => {
+        this.amountSpent += sale.quantity * sale.price;
         if (sale.quantity > bestSalerCounter) {
           bestSalerCounter = sale.quantity;
         }
         if (bestSalerCounter == sale.quantity) {
-          this.saleProduct = sale.produto;
+          this.saleProduct = sale.product;
         }
       });
-      console.log(this.saleProduct);
       this.updateChart();
       this.updateChartPie();
     });
   }
 
   updateChart() {
-    this.chartLine.data.labels = this.sales.map((el) => el.produto);
+    this.chartLine.data.labels = this.sales.map((el) => el.product);
     this.chartLine.data.datasets[0].data = this.sales.map((el) => el.quantity);
     this.chartLine.update();
   }
 
   updateChartPie() {
-    this.chartPie.data.labels = this.sales.map((el) => el.cliente);
+    this.chartPie.data.labels = this.sales.map((el) => el.costumer);
     this.chartPie.data.datasets[0].data = this.sales.map((el) => el.quantity);
     this.chartPie.update();
   }

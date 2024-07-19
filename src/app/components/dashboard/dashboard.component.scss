@@ -22,6 +22,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+
 }
 
 .content-chart {
@@ -30,13 +31,13 @@
   height: auto;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  padding-top: 10px;
+
   .chart {
     height: 400px;
     width: 350px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
   }
 }

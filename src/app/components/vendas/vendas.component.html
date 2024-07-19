@@ -8,9 +8,11 @@
       <mat-form-field style="width: 400px">
         <mat-label>Cliente</mat-label>
         <mat-select formControlName="costumer">
-          <mat-option *ngFor="let costumer of costumers" [value]="costumer.name">{{
-            costumer.name
-          }}</mat-option>
+          <mat-option
+            *ngFor="let costumer of costumers"
+            [value]="costumer.name"
+            >{{ costumer.name }}</mat-option
+          >
         </mat-select>
       </mat-form-field>
       <mat-form-field style="width: 400px">
@@ -41,4 +43,28 @@
       <button mat-raised-button color="primary" type="submit">Vender</button>
     </div>
   </form>
+
+  <h1>Todas as vendas registradas</h1>
+  <table mat-table [dataSource]="allSales" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="costumer">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">{{ element.costumer }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="product">
+      <th mat-header-cell *matHeaderCellDef>produto</th>
+      <td mat-cell *matCellDef="let element">{{ element.product }}</td>
+    </ng-container>
+    <ng-container matColumnDef="amountSpent">
+      <th mat-header-cell *matHeaderCellDef>Valor gasto</th>
+      <td mat-cell *matCellDef="let element">{{ element.price * element.quantity }} R$</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </div>
